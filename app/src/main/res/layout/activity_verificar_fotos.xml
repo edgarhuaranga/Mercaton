@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.edhuar.mercaton.VerificarFotos">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fotos tomadas"
+        android:textSize="25dp"
+        android:layout_gravity="center"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 01"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra1"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar1"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 02"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra2"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar2"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 03"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra3"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar3"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 04"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra4"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar4"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 05"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra5"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar5"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 06"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra6"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar6"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 07"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra7"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar7"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 08"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra8"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar8"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 09"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra9"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar9"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:background="@drawable/cell_shape"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Foto 10"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:padding="5dp"
+                    android:background="@drawable/cell_shape"
+                    android:id="@+id/imageview_foto10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="verFotoFullSize"
+                    android:layout_gravity="center" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                        android:id="@+id/textview_comentario10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comentario"/>
+                    <Button
+                        android:id="@+id/button_tomaotra10"
+                        android:onClick="tomaOtra"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar otra foto"/>
+                    <Button
+                        android:id="@+id/button_modificar10"
+                        android:onClick="modificarComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar comentario"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

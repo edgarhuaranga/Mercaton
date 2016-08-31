@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:id="@+id/layout_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/imageview_fotoperfil"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_perm_contact_calendar_black_24dp"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/itemTextView"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"/>
+            <TextView
+                android:id="@+id/textview_codigo_cliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Codigo"/>
+
+            <TextView
+                android:id="@+id/textview_direccion_cliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Direccion"/>
+            <TextView
+                android:id="@+id/textview_giro_cliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giro"/>
+            <TextView
+                android:id="@+id/textview_mercado_cliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mercado"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
