@@ -74,7 +74,7 @@ public class Cliente {
     String premioNoviembre;
     String premioDiciembre;
     String premioEnero;
-
+    boolean internalStorage = true;
     public Cliente(String codigo, Context context){
         /*String db[] = context.getResources().getStringArray(R.array.dbclientes);
         for(int i =0; i<db.length; i+=27){
@@ -215,8 +215,13 @@ public class Cliente {
                 diaSemana="ErrorSemana";
                 break;
         }
-        //s += Environment.getExternalStorageDirectory() + "/MercaTon/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
-        s += "/storage/sdcard1/Mercaton/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
+        if(internalStorage){
+            s += Environment.getExternalStorageDirectory() + "/MercaTon/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
+        }else{
+            s += "/storage/sdcard1/Mercaton/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
+        }
+        //
+
 
         return s;
     }
@@ -329,22 +334,347 @@ public class Cliente {
         String evaluacion = getUltimaEvaluacion(numsemana);
         Log.d("visitatxt1", evaluacion);
         String[] evaluacionPorProducto = evaluacion.split(",");
-        for(int i=0; i<evaluacionPorProducto.length; i++){
-            Log.d("visitatxt1",evaluacionPorProducto[i]+"/"+i);
 
-            if(evaluacionPorProducto[i].charAt(0) =='1' && i<productosRequeridosEnvases.length){
-                //Log.d("visitatxt1","Producto encontrado"+);
-                if(this.giro.equalsIgnoreCase("Multicategoría")){
-                    if(productosRequeridosMulti[i]==1) numprodEncontrados++;
+        if(this.giro.equalsIgnoreCase("Multicategoría")){
+
+            if(evaluacionPorProducto.length==40){
+                if(evaluacionPorProducto[0].charAt(0)=='1'){
+                    numprodEncontrados++;
                 }
-                if(this.giro.equalsIgnoreCase("Sanitarios")){
-                    if(productosRequeridosSanitarios[i]==1) numprodEncontrados++;
+                if(evaluacionPorProducto[1].charAt(0)=='1'){
+                    //numprodEncontrados++;
                 }
-                if(this.giro.equalsIgnoreCase("Envases Descartables")){
-                    if(productosRequeridosEnvases[i]==1) numprodEncontrados++;
+                if(evaluacionPorProducto[2].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[3].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[4].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[5].charAt(0)=='1' || evaluacionPorProducto[6].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[11].charAt(0)=='1' || evaluacionPorProducto[12].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[26].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[28].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[37].charAt(0)=='1'){
+                    //numprodEncontrados++;
                 }
             }
         }
+        if(this.giro.equalsIgnoreCase("Sanitarios")){
+            if(evaluacionPorProducto.length==40){
+                if(evaluacionPorProducto[0].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[1].charAt(0)=='1' || evaluacionPorProducto[2].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[3].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[4].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[5].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[6].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[11].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[12].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[26].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[28].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[37].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+            }
+
+        }
+        if(this.giro.equalsIgnoreCase("Envases Descartables")){
+            if(evaluacionPorProducto.length==40){
+                if(evaluacionPorProducto[0].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[1].charAt(0)=='1' || evaluacionPorProducto[2].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[2].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[3].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[4].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[5].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[6].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[11].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[12].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[24].charAt(0)=='1'||evaluacionPorProducto[25].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[26].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[28].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[37].charAt(0)=='1' && this.ciudad.equalsIgnoreCase("Lima")){
+                    numprodEncontrados++;
+                }
+            }
+        }
+
+
         return numprodEncontrados;
     }
 
@@ -416,8 +746,13 @@ public class Cliente {
 
     ArrayList<String> getPathEvaluacion(int numsemana) throws FileNotFoundException {
         ArrayList<String> res = new ArrayList<>();
-        //File mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
-        File mercaton = new File("/storage/sdcard1/Mercaton/");
+        File mercaton;
+        if(internalStorage){
+            mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
+        }else{
+            mercaton = new File("/storage/sdcard1/Mercaton/");
+        }
+        //
         Log.d("bug1", mercaton.getAbsolutePath());
 
         if(mercaton.exists()){
@@ -497,4 +832,5 @@ public class Cliente {
                 ", nombreCompra06='" + nombreCompra06 + '\'' +
                 '}';
     }
+
 }

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class Competencia extends AppCompatActivity {
 
     int NUM_PRODUCTOS_COMPETENCIA=30;
+    TextView textviewCategoriaCliente;
     ImageView[] imageViewsProdCompetencia;
     RadioButton[] radioButtonsCompetenciaSi;
     RadioButton[] radioButtonsCompetenciaNo;
@@ -36,6 +37,9 @@ public class Competencia extends AppCompatActivity {
         codigo = getIntent().getStringExtra("codigo");
         rol = getIntent().getStringExtra("rol");
         cliente = new Cliente(codigo, getApplicationContext());
+
+        textviewCategoriaCliente = (TextView) findViewById(R.id.textview_categoriacliente);
+        textviewCategoriaCliente.setText(cliente.giro);
 
         imageViewsProdCompetencia = new ImageView[NUM_PRODUCTOS_COMPETENCIA];
         radioButtonsCompetenciaSi = new RadioButton[NUM_PRODUCTOS_COMPETENCIA];

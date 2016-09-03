@@ -91,6 +91,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/cell_shape">
                 <TextView
+                    android:id="@+id/textview_logro_mes"
                     android:gravity="center"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"

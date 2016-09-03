@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Point;
+import android.os.Build;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -30,16 +31,19 @@ public class Utils {
 
     public static boolean fechaValida(Activity activity){
         try {
-            if(Settings.Global.getInt(activity.getContentResolver(), Settings.Global.AUTO_TIME) == 1) {
-                return true;
-            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if(Settings.Global.getInt(activity.getContentResolver(), Settings.Global.AUTO_TIME) == 1) {
+                    return true;
+                }
 
-            else {
-                Log.d("Reloj", "reloj modificado");
-                return false;
+                else {
+                    Log.d("Reloj", "reloj modificado");
+                    return false;
+                }
             }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
+            //return false;//todo comentar luego
         }
         return false;
     }
@@ -110,44 +114,44 @@ public class Utils {
     public static ArrayList<String> productosCampania(){
 
         ArrayList<String> productos = new ArrayList<>();
-        productos.add("Ladysoft Normal con alas (verde) ");
-        productos.add("Ladysoft Ultra Delgada Malla");
-        productos.add("Ladysoft Ultra Delgada Suave");
-        productos.add("Ladysoft Delgada (rosada)");
-        productos.add("Ladysoft Natural (amarilla)");
-        productos.add("Ladysoft Nocturna (negra)");
-        productos.add("Ladysoft Nocturna Doble Ala ");
-        productos.add("Babysec Recién Nacido (blanco) ");
-        productos.add("Babysec Premium (morado) ");
-        productos.add("Babysec Ultra (celeste)");
-        productos.add("Babysec Cuidado Total (blanco)");
-        productos.add("Toalla Húmeda Premium (Babysec)");
-        productos.add("Toalla Húmeda Ultra  (Babysec)");
-        productos.add("Cotidian Plus");
-        productos.add("Cotidian Premium");
-        productos.add("Cotidian Clásico ");
-        productos.add("Cotidian Multiuso ");
-        productos.add("Cotidian Pants");
-        productos.add("Ladysoft Normal pack x 42");
-        productos.add("Servilletas Ultra Doblada en 4  (Elite)");
-        productos.add("Servilletas Cortadas (verde)  (Elite)");
-        productos.add("Servilletas Práctica en 2 (roja)  (Elite)");
-        productos.add("Servilletas Doblada en 4 diseño (Elite)");
-        productos.add("Servilletas Doblada en 4 (celeste)  (Elite)");
-        productos.add("Dispensador x 27 unidades aloe vera  / compactos (Elite)");
-        productos.add("Dispensador x 27 unidades mentholado / compactos (Elite)");
-        productos.add("Papel Toalla Ultra (Elite)");
-        productos.add("Papel Toalla Ultra Megarollo (Elite)");
-        productos.add("Papel Toalla Clásico Rojo (Elite)");
-        productos.add("Papel Toalla Megarollo Clásico (Elite)");
-        productos.add("Papel Toalla Megarrollo Celeste (Elite)");
-        productos.add("Pañuelos Faciales (Elite)");
-        productos.add("Papel Higiénico Ultra Doble Hoja (Morado) (Elite)");
-        productos.add("Papel Higiénico Doble Hoja (Celeste) (Elite)");
-        productos.add("Papel Higiénico Dúo Doble Hoja (Elite)");
-        productos.add("Papel Higiénico Doble hoja Económico (Naranja) (Elite)");
-        productos.add("Papel Higiénico Plus Doble Hoja (fucsia) (Elite)");
-        productos.add("Papel Higiénico Noble Institucional");
+        productos.add("Ladysoft Normal con alas (verde) ");//0
+        productos.add("Ladysoft Ultra Delgada Malla");//1
+        productos.add("Ladysoft Ultra Delgada Suave");//2
+        productos.add("Ladysoft Delgada (rosada)");//3
+        productos.add("Ladysoft Natural (amarilla)");//4
+        productos.add("Ladysoft Nocturna (negra)");//5
+        productos.add("Ladysoft Nocturna Doble Ala ");//6
+        productos.add("Babysec Recién Nacido (blanco) ");//7
+        productos.add("Babysec Premium (morado) ");//8
+        productos.add("Babysec Ultra (celeste)");//9
+        productos.add("Babysec Cuidado Total (blanco)");//10
+        productos.add("Toalla Húmeda Premium (Babysec)");//11
+        productos.add("Toalla Húmeda Ultra  (Babysec)");//12
+        productos.add("Cotidian Plus");//13
+        productos.add("Cotidian Premium");//14
+        productos.add("Cotidian Clásico ");//15
+        productos.add("Cotidian Multiuso ");//16
+        productos.add("Cotidian Pants");//17
+        productos.add("Ladysoft Normal pack x 42");//18
+        productos.add("Servilletas Ultra Doblada en 4  (Elite)");//19
+        productos.add("Servilletas Cortadas (verde)  (Elite)");//20
+        productos.add("Servilletas Práctica en 2 (roja)  (Elite)");//21
+        productos.add("Servilletas Doblada en 4 diseño (Elite)");//22
+        productos.add("Servilletas Doblada en 4 (celeste)  (Elite)");//23
+        productos.add("Dispensador x 27 unidades aloe vera  / compactos (Elite)");//24
+        productos.add("Dispensador x 27 unidades mentholado / compactos (Elite)");//25
+        productos.add("Papel Toalla Ultra (Elite)");//26
+        productos.add("Papel Toalla Ultra Megarollo (Elite)");//27
+        productos.add("Papel Toalla Clásico Rojo (Elite)");//28
+        productos.add("Papel Toalla Megarollo Clásico (Elite)");//29
+        productos.add("Papel Toalla Megarrollo Celeste (Elite)");//30
+        productos.add("Pañuelos Faciales (Elite)");//31
+        productos.add("Papel Higiénico Ultra Doble Hoja (Morado) (Elite)");//32
+        productos.add("Papel Higiénico Doble Hoja (Celeste) (Elite)");//33
+        productos.add("Papel Higiénico Dúo Doble Hoja (Elite)");//34
+        productos.add("Papel Higiénico Doble hoja Económico (Naranja) (Elite)");//35
+        productos.add("Papel Higiénico Plus Doble Hoja (fucsia) (Elite)");//36
+        productos.add("Papel Higiénico Noble Institucional");//37
         productos.add("PM 001");
         productos.add("PM 002");
 

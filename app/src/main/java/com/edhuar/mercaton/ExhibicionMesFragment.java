@@ -36,6 +36,8 @@ public class ExhibicionMesFragment extends Fragment implements View.OnClickListe
     TextView productosFaltantes[] = new TextView[22];
     TextView comodinesUtilizados[] = new TextView[22];
     Cliente cliente;
+    TextView textViewComodinesUtilizados;
+    TextView textViewLogroMes;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -78,13 +80,13 @@ public class ExhibicionMesFragment extends Fragment implements View.OnClickListe
         LinearLayout tablaDiciembre = (LinearLayout) view.findViewById(R.id.tabla_diciembre);
         LinearLayout tablaEnero = (LinearLayout) view.findViewById(R.id.tabla_enero);
 
-        if(mParam1.equalsIgnoreCase("setiembre")) tablaSetiembre.setVisibility(View.VISIBLE);
-        if(mParam1.equalsIgnoreCase("octubre")) tablaOctubre.setVisibility(View.VISIBLE);
-        if(mParam1.equalsIgnoreCase("noviembre")) tablaNoviembre.setVisibility(View.VISIBLE);
-        if(mParam1.equalsIgnoreCase("diciembre")) tablaDiciembre.setVisibility(View.VISIBLE);
-        if(mParam1.equalsIgnoreCase("enero")) tablaEnero.setVisibility(View.VISIBLE);
+        textViewComodinesUtilizados = (TextView) view.findViewById(R.id.textview_comodines_utilizados_exhibicion_mes);
+        textViewLogroMes = (TextView) view.findViewById(R.id.textview_logro_mes);
+
+
 
         cliente = new Cliente(mParam2, getActivity().getApplicationContext());
+        textViewComodinesUtilizados.setText(cliente.comodinesUsados);
 
         setupViewsNumeroSemanas(view);
         setupViewsDescripcionSemanas(view);
@@ -97,6 +99,57 @@ public class ExhibicionMesFragment extends Fragment implements View.OnClickListe
         fillProductosEncontrados();
         fillProductosEvaluados();
         fillProductosComodin();
+
+        if(mParam1.equalsIgnoreCase("setiembre")){
+            tablaSetiembre.setVisibility(View.VISIBLE);
+            int logro = 0;
+            for(int i=1; i<=4; i++){
+                int prodExhigidos = Integer.parseInt(cliente.productosExhigidos);
+                int prodEvaluados = Integer.parseInt(productosEvaluadosSem[i].getText().toString());
+                if(prodEvaluados>=prodExhigidos) logro++;
+            }
+            textViewLogroMes.setText(logro+" semana(s)");
+        }
+        if(mParam1.equalsIgnoreCase("octubre")){
+            tablaOctubre.setVisibility(View.VISIBLE);
+            int logro = 0;
+            for(int i=5; i<=8; i++){
+                int prodExhigidos = Integer.parseInt(cliente.productosExhigidos);
+                int prodEvaluados = Integer.parseInt(productosEvaluadosSem[i].getText().toString());
+                if(prodEvaluados>=prodExhigidos) logro++;
+            }
+            textViewLogroMes.setText(logro+" semana(s)");
+        }
+        if(mParam1.equalsIgnoreCase("noviembre")){
+            tablaNoviembre.setVisibility(View.VISIBLE);
+            int logro = 0;
+            for(int i=9; i<=12; i++){
+                int prodExhigidos = Integer.parseInt(cliente.productosExhigidos);
+                int prodEvaluados = Integer.parseInt(productosEvaluadosSem[i].getText().toString());
+                if(prodEvaluados>=prodExhigidos) logro++;
+            }
+            textViewLogroMes.setText(logro+" semana(s)");
+        }
+        if(mParam1.equalsIgnoreCase("diciembre")){
+            tablaDiciembre.setVisibility(View.VISIBLE);
+            int logro = 0;
+            for(int i=13; i<=17; i++){
+                int prodExhigidos = Integer.parseInt(cliente.productosExhigidos);
+                int prodEvaluados = Integer.parseInt(productosEvaluadosSem[i].getText().toString());
+                if(prodEvaluados>=prodExhigidos) logro++;
+            }
+            textViewLogroMes.setText(logro+" semana(s)");
+        }
+        if(mParam1.equalsIgnoreCase("enero")){
+            tablaEnero.setVisibility(View.VISIBLE);
+            int logro = 0;
+            for(int i=18; i<=21; i++){
+                int prodExhigidos = Integer.parseInt(cliente.productosExhigidos);
+                int prodEvaluados = Integer.parseInt(productosEvaluadosSem[i].getText().toString());
+                if(prodEvaluados>=prodExhigidos) logro++;
+            }
+            textViewLogroMes.setText(logro+" semana(s)");
+        }
 
         return view;
     }
