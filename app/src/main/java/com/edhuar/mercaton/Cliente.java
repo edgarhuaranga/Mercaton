@@ -74,7 +74,7 @@ public class Cliente {
     String premioNoviembre;
     String premioDiciembre;
     String premioEnero;
-    boolean internalStorage = true;
+    boolean internalStorage = false;
     public Cliente(String codigo, Context context){
         /*String db[] = context.getResources().getStringArray(R.array.dbclientes);
         for(int i =0; i<db.length; i+=27){
@@ -690,7 +690,7 @@ public class Cliente {
         String evaluacion = getUltimaEvaluacion(numsemana);
         Log.d("visitatxt1", evaluacion);
         String[] evaluacionPorProducto = evaluacion.split(",");
-        for(int i=0; i<evaluacionPorProducto.length; i++){
+        /*for(int i=0; i<evaluacionPorProducto.length; i++){
             Log.d("visitatxt1",evaluacionPorProducto[i]+"/"+i);
 
             if(evaluacionPorProducto[i].charAt(0) =='2' && i<productosRequeridosEnvases.length){
@@ -711,7 +711,354 @@ public class Cliente {
                     }
                 }
             }
+        }*/
+
+
+        if(this.giro.equalsIgnoreCase("Multicategoría")){
+
+            if(evaluacionPorProducto.length==40){
+                if(evaluacionPorProducto[0].charAt(0)=='2'){
+                    res.add(productos.get(0));
+                }
+                if(evaluacionPorProducto[1].charAt(0)=='2'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[2].charAt(0)=='2'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[3].charAt(0)=='2'){
+                    res.add(productos.get(3));
+                }
+                if(evaluacionPorProducto[4].charAt(0)=='2'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[5].charAt(0)=='2' || evaluacionPorProducto[6].charAt(0)=='2'){
+                    res.add(productos.get(5));
+                    res.add(productos.get(6));
+                }
+                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                    res.add(productos.get(7));
+                }
+                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                    res.add(productos.get(8));
+                }
+                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                    res.add(productos.get(9));
+                }
+                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                    res.add(productos.get(10));
+                }
+                if(evaluacionPorProducto[11].charAt(0)=='1' || evaluacionPorProducto[12].charAt(0)=='1'){
+                    res.add(productos.get(11));
+                    res.add(productos.get(13));
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                    res.add(productos.get(13));
+                }
+                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                    res.add(productos.get(14));
+                }
+                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                    res.add(productos.get(15));
+                }
+                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                    res.add(productos.get(16));
+                }
+                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                    res.add(productos.get(18));
+                }
+                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                    res.add(productos.get(20));
+                }
+                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                    res.add(productos.get(21));
+                }
+                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                    res.add(productos.get(23));
+                }
+                if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
+                    res.add(productos.get(24));
+                    res.add(productos.get(25));
+                }
+                if(evaluacionPorProducto[26].charAt(0)=='1'){
+
+                    res.add(productos.get(26));
+                }
+                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[28].charAt(0)=='1'){
+
+                    res.add(productos.get(28));
+                }
+                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                    res.add(productos.get(29));
+                }
+                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                    res.add(productos.get(33));
+                }
+                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                    res.add(productos.get(34));
+                }
+                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                    res.add(productos.get(35));
+                }
+                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                    res.add(productos.get(36));
+                }
+                if(evaluacionPorProducto[37].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+            }
         }
+        if(this.giro.equalsIgnoreCase("Sanitarios")){
+            if(evaluacionPorProducto.length==40){
+                if(evaluacionPorProducto[0].charAt(0)=='1'){
+                    res.add(productos.get(0));
+                }
+                if(evaluacionPorProducto[1].charAt(0)=='1' || evaluacionPorProducto[2].charAt(0)=='1'){
+                    res.add(productos.get(1));
+                    res.add(productos.get(2));
+                }
+                if(evaluacionPorProducto[3].charAt(0)=='1'){
+                    res.add(productos.get(3));
+                }
+                if(evaluacionPorProducto[4].charAt(0)=='1'){
+                    res.add(productos.get(4));
+                }
+                if(evaluacionPorProducto[5].charAt(0)=='1'){
+                    res.add(productos.get(5));
+                }
+                if(evaluacionPorProducto[6].charAt(0)=='1'){
+                    res.add(productos.get(6));
+                }
+                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                    res.add(productos.get(7));
+                }
+                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                    res.add(productos.get(8));
+                }
+                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                    res.add(productos.get(9));
+                }
+                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                    res.add(productos.get(10));
+                }
+                if(evaluacionPorProducto[11].charAt(0)=='1'){
+                    res.add(productos.get(11));
+                }
+                if(evaluacionPorProducto[12].charAt(0)=='1'){
+                    res.add(productos.get(12));
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                    res.add(productos.get(13));
+                }
+                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                    res.add(productos.get(14));
+                }
+                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                    res.add(productos.get(15));
+                }
+                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                    res.add(productos.get(16));
+                }
+                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                    res.add(productos.get(17));
+                }
+                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                    res.add(productos.get(18));
+                }
+                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[26].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[28].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[37].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+            }
+
+        }
+        if(this.giro.equalsIgnoreCase("Envases Descartables")) {
+            if (evaluacionPorProducto.length == 40) {
+                if (evaluacionPorProducto[0].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[1].charAt(0) == '1' || evaluacionPorProducto[2].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[2].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[3].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[4].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[5].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[6].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[7].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[8].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[9].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[10].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[11].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[12].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[13].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[14].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[15].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[16].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[17].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[18].charAt(0) == '1') {
+                    //numprodEncontrados++;
+                }
+                if (evaluacionPorProducto[19].charAt(0) == '1') {
+                    res.add(productos.get(19));
+                }
+                if (evaluacionPorProducto[20].charAt(0) == '1') {
+                    res.add(productos.get(20));
+                }
+                if (evaluacionPorProducto[21].charAt(0) == '1') {
+                    res.add(productos.get(21));
+                }
+                if (evaluacionPorProducto[22].charAt(0) == '1') {
+                    res.add(productos.get(22));
+                }
+                if (evaluacionPorProducto[23].charAt(0) == '1') {
+                    res.add(productos.get(24));
+                }
+                if (evaluacionPorProducto[24].charAt(0) == '1' || evaluacionPorProducto[25].charAt(0) == '1') {
+                    res.add(productos.get(25));
+                }
+                if (evaluacionPorProducto[26].charAt(0) == '1') {
+                    res.add(productos.get(26));
+                }
+                if (evaluacionPorProducto[27].charAt(0) == '1') {
+                    res.add(productos.get(27));
+                }
+                if (evaluacionPorProducto[28].charAt(0) == '1') {
+                    res.add(productos.get(28));
+                }
+                if (evaluacionPorProducto[29].charAt(0) == '1') {
+                    res.add(productos.get(29));
+                }
+                if (evaluacionPorProducto[30].charAt(0) == '1') {
+                    res.add(productos.get(30));
+                }
+                if (evaluacionPorProducto[31].charAt(0) == '1') {
+                    res.add(productos.get(31));
+                }
+                if (evaluacionPorProducto[32].charAt(0) == '1') {
+                    res.add(productos.get(32));
+                }
+                if (evaluacionPorProducto[33].charAt(0) == '1') {
+                    res.add(productos.get(33));
+                }
+                if (evaluacionPorProducto[34].charAt(0) == '1') {
+                    res.add(productos.get(34));
+                }
+                if (evaluacionPorProducto[35].charAt(0) == '1') {
+                    res.add(productos.get(35));
+                }
+                if (evaluacionPorProducto[36].charAt(0) == '1') {
+                    res.add(productos.get(36));
+                }
+                if (evaluacionPorProducto[37].charAt(0) == '1' && this.ciudad.equalsIgnoreCase("Lima")) {
+                    res.add(productos.get(37));
+                }
+            }
+        }
+
         return res;
     }
 
@@ -756,39 +1103,34 @@ public class Cliente {
         Log.d("bug1", mercaton.getAbsolutePath());
 
         if(mercaton.exists()){
-            File[] meses = mercaton.listFiles();
-            for(int i=0; i<meses.length; i++){
-                File mes = meses[i];
-                if(mes.isDirectory()){
-                    File[] semanas = mes.listFiles();
-                    for(int j=0; j<semanas.length; j++){
-                        File semana = semanas[j];
-                        Log.d("semanapath",semana.getAbsolutePath());
-                        Log.d("semanapath",semana.getName().substring(6));
-                        int semnum = Integer.parseInt(semana.getName().substring(6));
-                        if(semnum==numsemana){
-                            if(semana.isDirectory()){
-                                File[] dias = semana.listFiles();
-                                for(int k=0; k<dias.length; k++){
-                                    File dia = dias[k];
-                                    if(dia.isDirectory()){
-                                        File[] visitados = dia.listFiles();
-                                        for(int m=0; m<visitados.length; m++){
-                                            if(visitados[m].getName().equalsIgnoreCase(codigo)){
-                                                File visitatxt = new File(visitados[m].getAbsolutePath()+"/visita.txt/");
-                                                if(visitatxt.exists()){
-                                                    Log.d("visitatxt", visitatxt.getAbsolutePath());
-                                                    res.add(visitatxt.getAbsolutePath());
-                                                }
-                                            }
-                                        }
+            String meses[] = new String[]{"Setiembre", "Octubre", "Noviembre", "Diciembre", "Enero"};
+
+            for(int mes=0; mes<meses.length; mes++){
+                File filemes = new File(mercaton.getAbsolutePath()+"/"+meses[mes]);
+                if(filemes.exists()){
+                    File semana = new File(filemes.getAbsolutePath()+"/Semana"+numsemana);
+                    if(semana.exists()){
+                        String diasSemana[] = new String[]{"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+                        for(int diaSemana=0; diaSemana<diasSemana.length; diaSemana++){
+                            File fileDia = new File(semana.getAbsolutePath()+"/"+diasSemana[diaSemana]);
+                            if(fileDia.exists()){
+
+                                File fileCliente = new File(fileDia.getAbsolutePath()+"/"+this.codigo);
+                                if(fileCliente.exists()){
+                                    File archivotxt = new File(fileCliente.getAbsolutePath()+"/visita.txt");
+                                    if(archivotxt.exists()){
+                                        res.add(archivotxt.getAbsolutePath());
                                     }
                                 }
                             }
                         }
+
                     }
                 }
             }
+        }
+        else{
+
         }
         return res;
     }

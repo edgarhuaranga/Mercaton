@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,5 +52,11 @@ public class RecyclerClientesAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public int getItemCount() {
         return listaClientes == null? 0: listaClientes.size();
+    }
+
+    public void setFilter(List<Cliente> countryModels) {
+        listaClientes = new ArrayList<>();
+        listaClientes.addAll(countryModels);
+        notifyDataSetChanged();
     }
 }

@@ -1,6 +1,7 @@
 package com.edhuar.mercaton;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -633,7 +634,24 @@ public class MedicionExhibicion extends AppCompatActivity {
         checkBoxesMotivo6[39] = (CheckBox) findViewById(R.id.checkbox_p39_opt06);
 
         ArrayList<String> productos = Utils.productosCampania();
-        for(int i=0; i<NUMERO_PRODUCTOS; i++) textViewNombreProducto[i].setText(productos.get(i));
+        for(int i=0; i<NUMERO_PRODUCTOS; i++){
+            textViewNombreProducto[i].setText(productos.get(i));
+            View parent = (View) textViewNombreProducto[i].getParent();
+
+            if(cliente.giro.equalsIgnoreCase("Multicategoría") && i==36){
+                textViewNombreProducto[i].setBackgroundColor(Color.YELLOW);
+            }
+            if(cliente.giro.equalsIgnoreCase("Sanitarios") && i==8){
+                textViewNombreProducto[i].setBackgroundColor(Color.YELLOW);
+            }
+            if(cliente.giro.equalsIgnoreCase("Envases Descartables") && i==36){
+                textViewNombreProducto[i].setBackgroundColor(Color.YELLOW);
+            }
+        }
+
+        for(int i=0; i<NUMERO_PRODUCTOS; i++) {
+            ((View) checkBoxesMotivo6[i].getParent()).setVisibility(View.GONE);
+        }
     }
 
     public void radioButtonChecked(View view){
@@ -722,7 +740,7 @@ public class MedicionExhibicion extends AppCompatActivity {
                 info+="2";
                 //alerta para que cuando marque no o protisa, deba marcar al menos un motivo
                 if(!checkBoxesMotivo1[i].isChecked() && !checkBoxesMotivo2[i].isChecked() && !checkBoxesMotivo3[i].isChecked() &&
-                        !checkBoxesMotivo4[i].isChecked() && !checkBoxesMotivo5[i].isChecked() && !checkBoxesMotivo6[i].isChecked()){
+                        !checkBoxesMotivo4[i].isChecked() && !checkBoxesMotivo5[i].isChecked()){
                     AlertDialog.Builder message = new AlertDialog.Builder(this);
                     message.setTitle("Atencion")
                             .setMessage("Debes marcar al menos un motivo por el que no existe producto "+textViewNombreProducto[i].getText())
@@ -739,7 +757,7 @@ public class MedicionExhibicion extends AppCompatActivity {
                 Log.d("checking",i+"_Protisa");
                 info+="3";
                 if(!checkBoxesMotivo1[i].isChecked() && !checkBoxesMotivo2[i].isChecked() && !checkBoxesMotivo3[i].isChecked() &&
-                        !checkBoxesMotivo4[i].isChecked() && !checkBoxesMotivo5[i].isChecked() && !checkBoxesMotivo6[i].isChecked()){
+                        !checkBoxesMotivo4[i].isChecked() && !checkBoxesMotivo5[i].isChecked()){
                     AlertDialog.Builder message = new AlertDialog.Builder(this);
                     message.setTitle("Atencion")
                             .setMessage("Debes marcar al menos un motivo por el que no existe producto "+textViewNombreProducto[i].getText())

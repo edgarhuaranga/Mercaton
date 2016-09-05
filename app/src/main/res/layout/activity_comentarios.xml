@@ -20,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Comentarios del distribuidor"/>
+            android:text="Comentarios sobre el distribuidor"/>
         <EditText
             android:id="@+id/edittext_comentarios_distribuidor"
             android:layout_gravity="center_vertical"
@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Comentarios de la campaña de la competencia"/>
+            android:text="Comentarios sobre la campaña de la competencia"/>
         <EditText
             android:id="@+id/edittext_comentarios_competencia"
             android:layout_gravity="center_vertical"

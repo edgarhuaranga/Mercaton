@@ -377,7 +377,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem01"
                             style="@style/Base.TextAppearance.AppCompat.Medium"
@@ -473,7 +473,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem02"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -965,7 +965,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem05"
                             style="@style/Base.TextAppearance.AppCompat.Medium"
@@ -1062,7 +1062,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem06"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -1542,7 +1542,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem09"
                             style="@style/Base.TextAppearance.AppCompat.Medium"
@@ -1639,7 +1639,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem10"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -2134,7 +2134,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem13"
                             style="@style/Base.TextAppearance.AppCompat.Medium"
@@ -2231,7 +2231,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem14"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -2522,7 +2522,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem17"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -2808,7 +2808,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem18"
                             style="@style/Base.TextAppearance.AppCompat.Medium"
@@ -2905,7 +2905,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        android:background="@drawable/graycell_shape">
+                        android:background="@drawable/cell_shape">
                         <TextView
                             android:id="@+id/textview_uso_comodin_sem19"
                             style="@style/Base.TextAppearance.AppCompat.Subhead"
@@ -3113,6 +3113,7 @@
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />

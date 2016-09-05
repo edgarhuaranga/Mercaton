@@ -349,31 +349,23 @@ public class MedicionFotos extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 int indx = requestCode-CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE;
 
-                /*Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                FileOutputStream fos = null;
+                try{
+                    File ultima = getLastPhotoTaken(indx);
+                    Bitmap resize = getSampleBitmapFromFile(ultima.getAbsolutePath(),432,474);
+                    fos = new FileOutputStream(ultima.getAbsolutePath());
+                    resize.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                }catch (Exception e){
 
-                tomaFotosButtons[indx-1].setImageBitmap(bitmap);
-                String nombre = createImageName(indx);
-
-                try {
-                    File file = createImageFile(nombre, indx);
-
-                    ByteArrayOutputStream bats = new ByteArrayOutputStream();
-                    //bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bats);
-                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), false);
-                    scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bats);
-
-                    //byte[] bitmapdata = bats.toByteArray();
-                    byte[] bitmapdata = scaledBitmap.copyPixelsToBuffer(bats);
-
-                    FileOutputStream fos = new FileOutputStream(file);
-                    fos.write(bitmapdata);
-                    fos.flush();
-                    fos.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                }finally {
+                    try {
+                        if (fos != null) {
+                            fos.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                */
 
                 try{
                     File ultima = getLastPhotoTaken(indx);
@@ -385,9 +377,6 @@ public class MedicionFotos extends AppCompatActivity {
                 } catch (Exception e){
                     e.printStackTrace();
                 }
-
-                //imageView.setImageBitmap(photo);
-                Log.d("foto","foto"+(requestCode-CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE));
 
 
             } else if (resultCode == RESULT_CANCELED) {
