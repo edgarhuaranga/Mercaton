@@ -74,7 +74,7 @@ public class Cliente {
     String premioNoviembre;
     String premioDiciembre;
     String premioEnero;
-    boolean internalStorage = false;
+    boolean internalStorage = true;
     public Cliente(String codigo, Context context){
         /*String db[] = context.getResources().getStringArray(R.array.dbclientes);
         for(int i =0; i<db.length; i+=27){
@@ -326,10 +326,6 @@ public class Cliente {
 
     int getNumProductosEncontrados(int numsemana){
         int numprodEncontrados=0;
-        int productosRequeridosEnvases[] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-        int productosRequeridosMulti[] = new int[]{1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1,1,1,1,0};
-        int productosRequeridosSanitarios[] = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-
 
         String evaluacion = getUltimaEvaluacion(numsemana);
         Log.d("visitatxt1", evaluacion);
@@ -443,6 +439,9 @@ public class Cliente {
                 if(evaluacionPorProducto[37].charAt(0)=='1'){
                     //numprodEncontrados++;
                 }
+                if(evaluacionPorProducto[38].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
             }
         }
         if(this.giro.equalsIgnoreCase("Sanitarios")){
@@ -553,6 +552,9 @@ public class Cliente {
                     //numprodEncontrados++;
                 }
                 if(evaluacionPorProducto[37].charAt(0)=='1'){
+                    //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[38].charAt(0)=='1'){
                     //numprodEncontrados++;
                 }
             }
@@ -671,6 +673,9 @@ public class Cliente {
                 if(evaluacionPorProducto[37].charAt(0)=='1' && this.ciudad.equalsIgnoreCase("Lima")){
                     numprodEncontrados++;
                 }
+                if(evaluacionPorProducto[38].charAt(0)=='1'){
+                    numprodEncontrados++;
+                }
             }
         }
 
@@ -682,36 +687,11 @@ public class Cliente {
         ArrayList<String> res = new ArrayList<>();
         ArrayList<String> productos = Utils.productosCampania();
 
-        int productosRequeridosEnvases[] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-        int productosRequeridosMulti[] = new int[]{1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1,1,1,1,0};
-        int productosRequeridosSanitarios[] = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 
         String evaluacion = getUltimaEvaluacion(numsemana);
         Log.d("visitatxt1", evaluacion);
         String[] evaluacionPorProducto = evaluacion.split(",");
-        /*for(int i=0; i<evaluacionPorProducto.length; i++){
-            Log.d("visitatxt1",evaluacionPorProducto[i]+"/"+i);
-
-            if(evaluacionPorProducto[i].charAt(0) =='2' && i<productosRequeridosEnvases.length){
-                //Log.d("visitatxt1","Producto encontrado"+);
-                if(this.giro.equalsIgnoreCase("Multicategoría")){
-                    if(productosRequeridosMulti[i]==1){
-                        res.add(productos.get(i));
-                    }
-                }
-                if(this.giro.equalsIgnoreCase("Sanitarios")){
-                    if(productosRequeridosSanitarios[i]==1) {
-                        res.add(productos.get(i));
-                    }
-                }
-                if(this.giro.equalsIgnoreCase("Envases Descartables")){
-                    if(productosRequeridosEnvases[i]==1){
-                        res.add(productos.get(i));
-                    }
-                }
-            }
-        }*/
 
 
         if(this.giro.equalsIgnoreCase("Multicategoría")){
@@ -736,169 +716,172 @@ public class Cliente {
                     res.add(productos.get(5));
                     res.add(productos.get(6));
                 }
-                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                if(evaluacionPorProducto[7].charAt(0)=='2'){
                     res.add(productos.get(7));
                 }
-                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                if(evaluacionPorProducto[8].charAt(0)=='2'){
                     res.add(productos.get(8));
                 }
-                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                if(evaluacionPorProducto[9].charAt(0)=='2'){
                     res.add(productos.get(9));
                 }
-                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                if(evaluacionPorProducto[10].charAt(0)=='2'){
                     res.add(productos.get(10));
                 }
-                if(evaluacionPorProducto[11].charAt(0)=='1' || evaluacionPorProducto[12].charAt(0)=='1'){
+                if(evaluacionPorProducto[11].charAt(0)=='2' || evaluacionPorProducto[12].charAt(0)=='2'){
                     res.add(productos.get(11));
+                    res.add(productos.get(12));
+                }
+                if(evaluacionPorProducto[13].charAt(0)=='2'){
                     res.add(productos.get(13));
                 }
-                if(evaluacionPorProducto[13].charAt(0)=='1'){
-                    res.add(productos.get(13));
-                }
-                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                if(evaluacionPorProducto[14].charAt(0)=='2'){
                     res.add(productos.get(14));
                 }
-                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                if(evaluacionPorProducto[15].charAt(0)=='2'){
                     res.add(productos.get(15));
                 }
-                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                if(evaluacionPorProducto[16].charAt(0)=='2'){
                     res.add(productos.get(16));
                 }
-                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                if(evaluacionPorProducto[17].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                if(evaluacionPorProducto[18].charAt(0)=='2'){
                     res.add(productos.get(18));
                 }
                 if(evaluacionPorProducto[19].charAt(0)=='1'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                if(evaluacionPorProducto[20].charAt(0)=='2'){
                     res.add(productos.get(20));
                 }
-                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                if(evaluacionPorProducto[21].charAt(0)=='2'){
                     res.add(productos.get(21));
                 }
                 if(evaluacionPorProducto[22].charAt(0)=='1'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                if(evaluacionPorProducto[23].charAt(0)=='2'){
                     res.add(productos.get(23));
                 }
-                if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
+                if(evaluacionPorProducto[24].charAt(0)=='2' || evaluacionPorProducto[25].charAt(0)=='2'){
                     res.add(productos.get(24));
                     res.add(productos.get(25));
                 }
-                if(evaluacionPorProducto[26].charAt(0)=='1'){
+                if(evaluacionPorProducto[26].charAt(0)=='2'){
 
                     res.add(productos.get(26));
                 }
-                if(evaluacionPorProducto[27].charAt(0)=='1'){
+                if(evaluacionPorProducto[27].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[28].charAt(0)=='1'){
+                if(evaluacionPorProducto[28].charAt(0)=='2'){
 
                     res.add(productos.get(28));
                 }
-                if(evaluacionPorProducto[29].charAt(0)=='1'){
+                if(evaluacionPorProducto[29].charAt(0)=='2'){
                     res.add(productos.get(29));
                 }
-                if(evaluacionPorProducto[30].charAt(0)=='1'){
+                if(evaluacionPorProducto[30].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[31].charAt(0)=='1'){
+                if(evaluacionPorProducto[31].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[32].charAt(0)=='1'){
+                if(evaluacionPorProducto[32].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[33].charAt(0)=='1'){
+                if(evaluacionPorProducto[33].charAt(0)=='2'){
                     res.add(productos.get(33));
                 }
-                if(evaluacionPorProducto[34].charAt(0)=='1'){
+                if(evaluacionPorProducto[34].charAt(0)=='2'){
                     res.add(productos.get(34));
                 }
-                if(evaluacionPorProducto[35].charAt(0)=='1'){
+                if(evaluacionPorProducto[35].charAt(0)=='2'){
                     res.add(productos.get(35));
                 }
-                if(evaluacionPorProducto[36].charAt(0)=='1'){
+                if(evaluacionPorProducto[36].charAt(0)=='2'){
                     res.add(productos.get(36));
                 }
-                if(evaluacionPorProducto[37].charAt(0)=='1'){
+                if(evaluacionPorProducto[37].charAt(0)=='2'){
                     //numprodEncontrados++;
+                }
+                if(evaluacionPorProducto[38].charAt(0)=='2'){
+                    res.add(productos.get(38));
                 }
             }
         }
         if(this.giro.equalsIgnoreCase("Sanitarios")){
             if(evaluacionPorProducto.length==40){
-                if(evaluacionPorProducto[0].charAt(0)=='1'){
+                if(evaluacionPorProducto[0].charAt(0)=='2'){
                     res.add(productos.get(0));
                 }
-                if(evaluacionPorProducto[1].charAt(0)=='1' || evaluacionPorProducto[2].charAt(0)=='1'){
+                if(evaluacionPorProducto[1].charAt(0)=='2' || evaluacionPorProducto[2].charAt(0)=='2'){
                     res.add(productos.get(1));
                     res.add(productos.get(2));
                 }
-                if(evaluacionPorProducto[3].charAt(0)=='1'){
+                if(evaluacionPorProducto[3].charAt(0)=='2'){
                     res.add(productos.get(3));
                 }
-                if(evaluacionPorProducto[4].charAt(0)=='1'){
+                if(evaluacionPorProducto[4].charAt(0)=='2'){
                     res.add(productos.get(4));
                 }
-                if(evaluacionPorProducto[5].charAt(0)=='1'){
+                if(evaluacionPorProducto[5].charAt(0)=='2'){
                     res.add(productos.get(5));
                 }
-                if(evaluacionPorProducto[6].charAt(0)=='1'){
+                if(evaluacionPorProducto[6].charAt(0)=='2'){
                     res.add(productos.get(6));
                 }
-                if(evaluacionPorProducto[7].charAt(0)=='1'){
+                if(evaluacionPorProducto[7].charAt(0)=='2'){
                     res.add(productos.get(7));
                 }
-                if(evaluacionPorProducto[8].charAt(0)=='1'){
+                if(evaluacionPorProducto[8].charAt(0)=='2'){
                     res.add(productos.get(8));
                 }
-                if(evaluacionPorProducto[9].charAt(0)=='1'){
+                if(evaluacionPorProducto[9].charAt(0)=='2'){
                     res.add(productos.get(9));
                 }
-                if(evaluacionPorProducto[10].charAt(0)=='1'){
+                if(evaluacionPorProducto[10].charAt(0)=='2'){
                     res.add(productos.get(10));
                 }
-                if(evaluacionPorProducto[11].charAt(0)=='1'){
+                if(evaluacionPorProducto[11].charAt(0)=='2'){
                     res.add(productos.get(11));
                 }
-                if(evaluacionPorProducto[12].charAt(0)=='1'){
+                if(evaluacionPorProducto[12].charAt(0)=='2'){
                     res.add(productos.get(12));
                 }
-                if(evaluacionPorProducto[13].charAt(0)=='1'){
+                if(evaluacionPorProducto[13].charAt(0)=='2'){
                     res.add(productos.get(13));
                 }
-                if(evaluacionPorProducto[14].charAt(0)=='1'){
+                if(evaluacionPorProducto[14].charAt(0)=='2'){
                     res.add(productos.get(14));
                 }
-                if(evaluacionPorProducto[15].charAt(0)=='1'){
+                if(evaluacionPorProducto[15].charAt(0)=='2'){
                     res.add(productos.get(15));
                 }
-                if(evaluacionPorProducto[16].charAt(0)=='1'){
+                if(evaluacionPorProducto[16].charAt(0)=='2'){
                     res.add(productos.get(16));
                 }
-                if(evaluacionPorProducto[17].charAt(0)=='1'){
+                if(evaluacionPorProducto[17].charAt(0)=='2'){
                     res.add(productos.get(17));
                 }
-                if(evaluacionPorProducto[18].charAt(0)=='1'){
+                if(evaluacionPorProducto[18].charAt(0)=='2'){
                     res.add(productos.get(18));
                 }
-                if(evaluacionPorProducto[19].charAt(0)=='1'){
+                if(evaluacionPorProducto[19].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[20].charAt(0)=='1'){
+                if(evaluacionPorProducto[20].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[21].charAt(0)=='1'){
+                if(evaluacionPorProducto[21].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[22].charAt(0)=='1'){
+                if(evaluacionPorProducto[22].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
-                if(evaluacionPorProducto[23].charAt(0)=='1'){
+                if(evaluacionPorProducto[23].charAt(0)=='2'){
                     //numprodEncontrados++;
                 }
                 if(evaluacionPorProducto[24].charAt(0)=='1' || evaluacionPorProducto[25].charAt(0)=='1'){
@@ -1002,59 +985,62 @@ public class Cliente {
                 if (evaluacionPorProducto[18].charAt(0) == '1') {
                     //numprodEncontrados++;
                 }
-                if (evaluacionPorProducto[19].charAt(0) == '1') {
+                if (evaluacionPorProducto[19].charAt(0) == '2') {
                     res.add(productos.get(19));
                 }
-                if (evaluacionPorProducto[20].charAt(0) == '1') {
+                if (evaluacionPorProducto[20].charAt(0) == '2') {
                     res.add(productos.get(20));
                 }
-                if (evaluacionPorProducto[21].charAt(0) == '1') {
+                if (evaluacionPorProducto[21].charAt(0) == '2') {
                     res.add(productos.get(21));
                 }
-                if (evaluacionPorProducto[22].charAt(0) == '1') {
+                if (evaluacionPorProducto[22].charAt(0) == '2') {
                     res.add(productos.get(22));
                 }
-                if (evaluacionPorProducto[23].charAt(0) == '1') {
+                if (evaluacionPorProducto[23].charAt(0) == '2') {
                     res.add(productos.get(24));
                 }
-                if (evaluacionPorProducto[24].charAt(0) == '1' || evaluacionPorProducto[25].charAt(0) == '1') {
+                if (evaluacionPorProducto[24].charAt(0) == '2' || evaluacionPorProducto[25].charAt(0) == '2') {
                     res.add(productos.get(25));
                 }
-                if (evaluacionPorProducto[26].charAt(0) == '1') {
+                if (evaluacionPorProducto[26].charAt(0) == '2') {
                     res.add(productos.get(26));
                 }
-                if (evaluacionPorProducto[27].charAt(0) == '1') {
+                if (evaluacionPorProducto[27].charAt(0) == '2') {
                     res.add(productos.get(27));
                 }
-                if (evaluacionPorProducto[28].charAt(0) == '1') {
+                if (evaluacionPorProducto[28].charAt(0) == '2') {
                     res.add(productos.get(28));
                 }
-                if (evaluacionPorProducto[29].charAt(0) == '1') {
+                if (evaluacionPorProducto[29].charAt(0) == '2') {
                     res.add(productos.get(29));
                 }
-                if (evaluacionPorProducto[30].charAt(0) == '1') {
+                if (evaluacionPorProducto[30].charAt(0) == '2') {
                     res.add(productos.get(30));
                 }
-                if (evaluacionPorProducto[31].charAt(0) == '1') {
+                if (evaluacionPorProducto[31].charAt(0) == '2') {
                     res.add(productos.get(31));
                 }
-                if (evaluacionPorProducto[32].charAt(0) == '1') {
+                if (evaluacionPorProducto[32].charAt(0) == '2') {
                     res.add(productos.get(32));
                 }
-                if (evaluacionPorProducto[33].charAt(0) == '1') {
+                if (evaluacionPorProducto[33].charAt(0) == '2') {
                     res.add(productos.get(33));
                 }
-                if (evaluacionPorProducto[34].charAt(0) == '1') {
+                if (evaluacionPorProducto[34].charAt(0) == '2') {
                     res.add(productos.get(34));
                 }
-                if (evaluacionPorProducto[35].charAt(0) == '1') {
+                if (evaluacionPorProducto[35].charAt(0) == '2') {
                     res.add(productos.get(35));
                 }
-                if (evaluacionPorProducto[36].charAt(0) == '1') {
+                if (evaluacionPorProducto[36].charAt(0) == '2') {
                     res.add(productos.get(36));
                 }
-                if (evaluacionPorProducto[37].charAt(0) == '1' && this.ciudad.equalsIgnoreCase("Lima")) {
+                if (evaluacionPorProducto[37].charAt(0) == '2' && this.ciudad.equalsIgnoreCase("Lima")) {
                     res.add(productos.get(37));
+                }
+                if(evaluacionPorProducto[38].charAt(0)=='2'){
+                    res.add(productos.get(38));
                 }
             }
         }
@@ -1142,6 +1128,7 @@ public class Cliente {
         }
         return "-";
     }
+
     @Override
     public String toString() {
         return "Cliente{" +

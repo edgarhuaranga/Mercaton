@@ -150,10 +150,11 @@ public class Utils {
         productos.add("Papel Higiénico Doble Hoja (Celeste) (Elite)");//33
         productos.add("Papel Higiénico Dúo Doble Hoja (Elite)");//34
         productos.add("Papel Higiénico Doble hoja Económico (Naranja) (Elite)");//35
-        productos.add("Papel Higiénico Plus Doble Hoja (fucsia) (Elite)");//36
+        productos.add("Papel Higiénico Plus Doble Hoja (Lila) (Elite)");//36
         productos.add("Papel Higiénico Noble Institucional");//37
-        productos.add("PM 001");
-        productos.add("PM 002");
+        productos.add("Papel Toalla Doblado (Elite)");//38
+        productos.add("PM 001");//39
+        productos.add("PM 002");//40
 
         return productos;
     }

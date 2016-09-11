@@ -14,29 +14,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListaClientes" />
-        <activity android:name=".MenuCliente" />
-        <activity android:name=".Perfil" />
-        <activity android:name=".HistoricoExhibicion" />
-        <activity android:name=".HistoricoCompras" />
-        <activity android:name=".Visita" />
-        <activity android:name=".MedicionExhibicion" />
-        <activity android:name=".MedicionFotos" />
-        <activity android:name=".VerificarFotos" />
-        <activity android:name=".FullSizeFoto" />
-        <activity android:name=".Competencia" />
-        <activity android:name=".Comentarios" />
-        <activity android:name=".Galeria" />
-        <activity android:name=".GaleriaSemanal" />
-        <activity android:name=".FullScreenViewActivity" />
-        <activity android:name=".ListaBuscaClientes"></activity>
+        <activity android:name=".ListaClientes"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MenuCliente"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Perfil"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HistoricoExhibicion"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HistoricoCompras"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Visita"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MedicionExhibicion"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MedicionFotos"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VerificarFotos"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FullSizeFoto"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Competencia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Comentarios"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Galeria"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GaleriaSemanal"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FullScreenViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListaBuscaClientes"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
