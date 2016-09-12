@@ -254,8 +254,9 @@ public class Cliente {
 
     ArrayList<String> getPathPhotos(int numsemana){
         ArrayList<String> res = new ArrayList<>();
-        //File mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
-        File mercaton = new File("/storage/sdcard1/Mercaton/");
+        File mercaton;
+        if(internalStorage) mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
+        else mercaton = new File("/storage/sdcard1/Mercaton/");
         Log.d("bug1", mercaton.getAbsolutePath());
 
         if(mercaton.exists()){
