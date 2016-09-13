@@ -74,44 +74,8 @@ public class Cliente {
     String premioNoviembre;
     String premioDiciembre;
     String premioEnero;
-    boolean internalStorage = true;
+    boolean internalStorage = false;
     public Cliente(String codigo, Context context){
-        /*String db[] = context.getResources().getStringArray(R.array.dbclientes);
-        for(int i =0; i<db.length; i+=27){
-            if(codigo.equalsIgnoreCase(db[i])){
-                this.codigo = codigo;
-                this.supervisor=db[i+1];
-                this.gestor=db[i+2];
-                this.ciudad=db[i+3];
-                this.distrito=db[i+4];
-                this.nombre = db[i+5];
-                this.representante = db[i+6];
-                this.dni = db[i+7];
-                this.direccion = db[i+8];
-                this.mercado = db[i+9];
-                this.giro = db[i+10];
-
-                this.productosExhigidos = db[i+11];
-                this.comodinesTotales = db[i+12];
-                this.comodinesUsados = db[i+13];
-                this.comodinesRestantes = db[i+14];
-
-                this.distribuidora01 = db[i+15];
-                this.distribuidora02 = db[i+16];
-                this.distribuidora03 = db[i+17];
-                this.distribuidora04 = db[i+18];
-                this.distribuidora05 = db[i+19];
-                this.distribuidora06 = db[i+20];
-
-                this.nombreCompra01 = db[i+21];
-                this.nombreCompra02 = db[i+22];
-                this.nombreCompra03 = db[i+23];
-                this.nombreCompra04 = db[i+24];
-                this.nombreCompra05 = db[i+25];
-                this.nombreCompra06 = db[i+26];
-
-            }
-        }*/
         DatabaseHandler db=new DatabaseHandler(context, null, null, 2);
         Cliente clientedb = db.getClienteFromDB(codigo);
         this.codigo = clientedb.codigo;
@@ -216,7 +180,7 @@ public class Cliente {
                 break;
         }
         if(internalStorage){
-            s += Environment.getExternalStorageDirectory() + "/MercaTon/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
+            s += Environment.getExternalStorageDirectory() + "/Mercaton/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
         }else{
             s += "/storage/sdcard1/Mercaton/"+meses[mes]+"/"+"Semana"+semanacampania+"/"+diaSemana+"/"+codigo+"/";
         }
@@ -255,7 +219,7 @@ public class Cliente {
     ArrayList<String> getPathPhotos(int numsemana){
         ArrayList<String> res = new ArrayList<>();
         File mercaton;
-        if(internalStorage) mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
+        if(internalStorage) mercaton = new File(Environment.getExternalStorageDirectory()+"/Mercaton/");
         else mercaton = new File("/storage/sdcard1/Mercaton/");
         Log.d("bug1", mercaton.getAbsolutePath());
 
@@ -327,14 +291,17 @@ public class Cliente {
 
     int getNumProductosEncontrados(int numsemana){
         int numprodEncontrados=0;
+        int numProdXSemana;
+        if(numsemana==1) numProdXSemana=40;
+        else numProdXSemana=41;
 
         String evaluacion = getUltimaEvaluacion(numsemana);
-        Log.d("visitatxt1", evaluacion);
+        Log.d("visitatxt1sem"+numsemana, evaluacion);
         String[] evaluacionPorProducto = evaluacion.split(",");
 
         if(this.giro.equalsIgnoreCase("Multicategoría")){
 
-            if(evaluacionPorProducto.length==40){
+            if(evaluacionPorProducto.length==numProdXSemana){
                 if(evaluacionPorProducto[0].charAt(0)=='1'){
                     numprodEncontrados++;
                 }
@@ -446,7 +413,7 @@ public class Cliente {
             }
         }
         if(this.giro.equalsIgnoreCase("Sanitarios")){
-            if(evaluacionPorProducto.length==40){
+            if(evaluacionPorProducto.length==numProdXSemana){
                 if(evaluacionPorProducto[0].charAt(0)=='1'){
                     numprodEncontrados++;
                 }
@@ -562,7 +529,7 @@ public class Cliente {
 
         }
         if(this.giro.equalsIgnoreCase("Envases Descartables")){
-            if(evaluacionPorProducto.length==40){
+            if(evaluacionPorProducto.length==numProdXSemana){
                 if(evaluacionPorProducto[0].charAt(0)=='1'){
                     //numprodEncontrados++;
                 }
@@ -688,16 +655,16 @@ public class Cliente {
         ArrayList<String> res = new ArrayList<>();
         ArrayList<String> productos = Utils.productosCampania();
 
-
-
+        int numProdXSemana;
+        if(numsemana==1) numProdXSemana=40;
+        else numProdXSemana=41;
         String evaluacion = getUltimaEvaluacion(numsemana);
         Log.d("visitatxt1", evaluacion);
         String[] evaluacionPorProducto = evaluacion.split(",");
 
-
         if(this.giro.equalsIgnoreCase("Multicategoría")){
 
-            if(evaluacionPorProducto.length==40){
+            if(evaluacionPorProducto.length==numProdXSemana){
                 if(evaluacionPorProducto[0].charAt(0)=='2'){
                     res.add(productos.get(0));
                 }
@@ -814,7 +781,7 @@ public class Cliente {
             }
         }
         if(this.giro.equalsIgnoreCase("Sanitarios")){
-            if(evaluacionPorProducto.length==40){
+            if(evaluacionPorProducto.length==numProdXSemana){
                 if(evaluacionPorProducto[0].charAt(0)=='2'){
                     res.add(productos.get(0));
                 }
@@ -928,7 +895,7 @@ public class Cliente {
 
         }
         if(this.giro.equalsIgnoreCase("Envases Descartables")) {
-            if (evaluacionPorProducto.length == 40) {
+            if (evaluacionPorProducto.length == numProdXSemana) {
                 if (evaluacionPorProducto[0].charAt(0) == '1') {
                     //numprodEncontrados++;
                 }
@@ -1082,7 +1049,7 @@ public class Cliente {
         ArrayList<String> res = new ArrayList<>();
         File mercaton;
         if(internalStorage){
-            mercaton = new File(Environment.getExternalStorageDirectory()+"/MercaTon/");
+            mercaton = new File(Environment.getExternalStorageDirectory()+"/Mercaton/");
         }else{
             mercaton = new File("/storage/sdcard1/Mercaton/");
         }
