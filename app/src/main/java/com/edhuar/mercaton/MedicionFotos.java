@@ -352,7 +352,9 @@ public class MedicionFotos extends AppCompatActivity {
                 FileOutputStream fos = null;
                 try{
                     File ultima = getLastPhotoTaken(indx);
-                    Bitmap resize = getSampleBitmapFromFile(ultima.getAbsolutePath(),432,474);
+                    //Bitmap resize = getSampleBitmapFromFile(ultima.getAbsolutePath(),432,474);
+                    //Bitmap resize = getSampleBitmapFromFile(ultima.getAbsolutePath(),332,374);
+                    Bitmap resize = getSampleBitmapFromFile(ultima.getAbsolutePath(),300,180);
                     fos = new FileOutputStream(ultima.getAbsolutePath());
                     resize.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 }catch (Exception e){
