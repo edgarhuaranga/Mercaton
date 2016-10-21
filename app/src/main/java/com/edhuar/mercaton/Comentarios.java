@@ -120,11 +120,11 @@ public class Comentarios extends AppCompatActivity {
         int hour = c.get(Calendar.HOUR_OF_DAY);
         if(hour<10) res = res+"0"+hour;
         else res += hour;
-        res+=":";
+        res+="_";
         int minute = c.get(Calendar.MINUTE);
         if(minute<10) res = res+"0"+minute;
         else res += minute;
-        res+=":";
+        res+="_";
         int second = c.get(Calendar.SECOND);
         if(second<10) res = res+"0"+second;
         else res += second;
