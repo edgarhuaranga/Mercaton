@@ -80,6 +80,14 @@ public class ComprasMesFragment extends Fragment {
         TextView distribuidor05 = (TextView) view.findViewById(R.id.textview_distribuidor05);
         TextView distribuidor06 = (TextView) view.findViewById(R.id.textview_distribuidor06);
 
+        TextView compraDist01 = (TextView) view.findViewById(R.id.textview_compradist01);
+        TextView compraDist02 = (TextView) view.findViewById(R.id.textview_compradist02);
+        TextView compraDist03 = (TextView) view.findViewById(R.id.textview_compradist03);
+        TextView compraDist04 = (TextView) view.findViewById(R.id.textview_compradist04);
+        TextView compraDist05 = (TextView) view.findViewById(R.id.textview_compradist05);
+        TextView compraDist06 = (TextView) view.findViewById(R.id.textview_compradist06);
+        TextView compraTotal = (TextView) view.findViewById(R.id.textview_compratotal);
+
         nombre01.setText(cliente.nombreCompra01);
         nombre02.setText(cliente.nombreCompra02);
         nombre03.setText(cliente.nombreCompra03);
@@ -93,6 +101,18 @@ public class ComprasMesFragment extends Fragment {
         distribuidor04.setText(cliente.distribuidora04);
         distribuidor05.setText(cliente.distribuidora05);
         distribuidor06.setText(cliente.distribuidora06);
+
+        if(mParam2.equalsIgnoreCase("setiembre")){
+            compraDist01.setText("S/"+cliente.getCompra(1, getContext()));
+            compraDist02.setText("S/"+cliente.getCompra(2, getContext()));
+            compraDist03.setText("S/"+cliente.getCompra(3, getContext()));
+            compraDist04.setText("S/"+cliente.getCompra(4, getContext()));
+            compraDist05.setText("S/"+cliente.getCompra(5, getContext()));
+            compraDist06.setText("S/"+cliente.getCompra(6, getContext()));
+
+            compraTotal.setText(cliente.getCompra(7, getContext()));
+
+        }
 
         return view;
     }

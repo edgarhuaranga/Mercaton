@@ -75,6 +75,7 @@ public class Cliente {
     String premioDiciembre;
     String premioEnero;
     boolean internalStorage = false;
+
     public Cliente(String codigo, Context context){
         DatabaseHandler db=new DatabaseHandler(context, null, null, 2);
         Cliente clientedb = db.getClienteFromDB(codigo);
@@ -139,6 +140,8 @@ public class Cliente {
         this.nombreCompra04 = c.getString(24);
         this.nombreCompra05 = c.getString(25);
         this.nombreCompra06 = c.getString(26);
+
+
     }
 
     String getPath(){
@@ -1093,6 +1096,14 @@ public class Cliente {
         String[] dbpremios = context.getResources().getStringArray(R.array.dbpremios);
         for(int i=0; i<dbpremios.length; i+=6){
             if(dbpremios[i].equalsIgnoreCase(codigo)) return dbpremios[i+mes];
+        }
+        return "-";
+    }
+
+    String getCompra(int idDistribuidor, Context context){
+        String[] dbcompras = context.getResources().getStringArray(R.array.compras_setiembre);
+        for(int i=0; i<dbcompras.length; i+=8){
+            if(dbcompras[i].equalsIgnoreCase(codigo)) return dbcompras[i+idDistribuidor];
         }
         return "-";
     }

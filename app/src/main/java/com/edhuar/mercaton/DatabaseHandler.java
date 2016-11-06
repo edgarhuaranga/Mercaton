@@ -212,7 +212,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
 
-        Log.d("student data", modelList.toString());
+        Log.d("infocliente", modelList.toString());
 
 
         return modelList;

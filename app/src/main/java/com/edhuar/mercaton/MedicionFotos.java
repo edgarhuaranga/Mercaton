@@ -256,6 +256,8 @@ public class MedicionFotos extends AppCompatActivity {
         String res="";
         //Toast.makeText(getApplicationContext(), res, Toast.LENGTH_LONG).show();
         Calendar c = Calendar.getInstance();
+        int dia, mes;
+
         int hour = c.get(Calendar.HOUR_OF_DAY);
         if(hour<10) res = res+"0"+hour;
         else res += hour;
@@ -269,8 +271,12 @@ public class MedicionFotos extends AppCompatActivity {
         else res += second;
         res+="#";
 
+        mes = c.get(Calendar.MONTH);
+        dia = c.get(Calendar.DAY_OF_MONTH);
 
-        res += rol+indexfoto+codigo;
+        String diames = "#"+mes+"#"+dia+"#";
+
+        res += rol+indexfoto+diames+codigo;
         /*try{
             File carpetaFoto = new File(clienteVisitado.getPath()+"Semana"+semana+"/"+dia+"/"+clienteVisitado.codigo+"/Fotos/");
             res += clienteVisitado.codigo + (carpetaFoto.listFiles().length+1);
