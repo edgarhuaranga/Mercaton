@@ -54,7 +54,6 @@ public class ComprasMesFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            Cliente cliente = new Cliente(mParam1, getContext());
         }
     }
 
@@ -64,6 +63,7 @@ public class ComprasMesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_compras_mes, container, false);
         Cliente cliente = new Cliente(mParam1, getContext());
+
 
         Log.d("fragmentcliente", cliente.toString());
         TextView nombre01 = (TextView) view.findViewById(R.id.textview_nombre01);
@@ -103,15 +103,22 @@ public class ComprasMesFragment extends Fragment {
         distribuidor06.setText(cliente.distribuidora06);
 
         if(mParam2.equalsIgnoreCase("setiembre")){
-            compraDist01.setText("S/"+cliente.getCompra(1, getContext()));
-            compraDist02.setText("S/"+cliente.getCompra(2, getContext()));
-            compraDist03.setText("S/"+cliente.getCompra(3, getContext()));
-            compraDist04.setText("S/"+cliente.getCompra(4, getContext()));
-            compraDist05.setText("S/"+cliente.getCompra(5, getContext()));
-            compraDist06.setText("S/"+cliente.getCompra(6, getContext()));
-
-            compraTotal.setText(cliente.getCompra(7, getContext()));
-
+            compraDist01.setText("S/"+cliente.getCompra(1, 1, getContext()));
+            compraDist02.setText("S/"+cliente.getCompra(2, 1, getContext()));
+            compraDist03.setText("S/"+cliente.getCompra(3, 1, getContext()));
+            compraDist04.setText("S/"+cliente.getCompra(4, 1, getContext()));
+            compraDist05.setText("S/"+cliente.getCompra(5, 1, getContext()));
+            compraDist06.setText("S/"+cliente.getCompra(6, 1, getContext()));
+            compraTotal.setText(cliente.getCompra(7, 1, getContext()));
+        }
+        else if(mParam2.equalsIgnoreCase("octubre")){
+            compraDist01.setText("S/"+cliente.getCompra(1, 2, getContext()));
+            compraDist02.setText("S/"+cliente.getCompra(2, 2, getContext()));
+            compraDist03.setText("S/"+cliente.getCompra(3, 2, getContext()));
+            compraDist04.setText("S/"+cliente.getCompra(4, 2, getContext()));
+            compraDist05.setText("S/"+cliente.getCompra(5, 2, getContext()));
+            compraDist06.setText("S/"+cliente.getCompra(6, 2, getContext()));
+            compraTotal.setText(cliente.getCompra(7, 2,getContext()));
         }
 
         return view;

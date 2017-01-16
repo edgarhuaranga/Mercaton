@@ -1100,8 +1100,26 @@ public class Cliente {
         return "-";
     }
 
-    String getCompra(int idDistribuidor, Context context){
-        String[] dbcompras = context.getResources().getStringArray(R.array.compras_setiembre);
+    String getCompra(int idDistribuidor,int mes, Context context){
+        String[] dbcompras = null;
+        if(mes == 1){
+            dbcompras = context.getResources().getStringArray(R.array.compras_setiembre);
+        }
+        else if(mes == 2){
+            dbcompras = context.getResources().getStringArray(R.array.compras_octubre);
+        }
+        else if(mes == 3){
+
+        }
+        else if(mes == 4){
+
+        }
+        else if(mes == 5){
+
+        }
+        else if(mes == 6){
+
+        }
         for(int i=0; i<dbcompras.length; i+=8){
             if(dbcompras[i].equalsIgnoreCase(codigo)) return dbcompras[i+idDistribuidor];
         }
